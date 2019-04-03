@@ -13,7 +13,7 @@ public class DB {
     public SQLiteDatabase db;
     private  File file;
   public  DB(){
-      file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath(), "/project-android");
+      //file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath(), "/project-android");
 
       if (!file.exists())  file.mkdir();
       File myFile = new File(file.getAbsolutePath()+"/DB.db");
