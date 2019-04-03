@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 private EditText user,password;
 private Button signUp,login;
     File file;
+    private  Cursor cursor ;
     private Spinner TypeBook;
     private DB database;
     private final static int REQUEST_DB=10;
@@ -78,9 +79,11 @@ private Button signUp,login;
 
                 if(user.getText().toString().equals("Library Nablus")) {
 
-                    Cursor cursor = database.db.rawQuery("select password from Library where name_library='Library Nablus'", null);
+                    cursor = database.db.rawQuery("select password from Library where name_library='Library Nablus'", null);
+
                     while (cursor.moveToNext())
-                        if(cursor.getString(0).equals(password.getText().toString())){
+                       // Log.d("aaaaaaaaaaaaaaaaaaaaa",cursor.getString(cursor.getColumnIndex("password")));
+                        if(cursor.getString(cursor.getColumnIndex("password")).equals(password.getText().toString())){
 
                             SP.writeLoginState(user.getText().toString(),"Library",true);
                             startActivity(new Intent(getApplicationContext(),HomeSeller.class));

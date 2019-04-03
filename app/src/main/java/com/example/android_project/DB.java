@@ -40,14 +40,13 @@ public class DB {
 ContentValues cv = new  ContentValues();
 
       cv.put("name_library", "Library Nablus");
-      cv.put("password",   "111");
       cv.put("image", (byte[]) null);
       cv.put("password",   "fff");
       cv.put("phone",    13);
       cv.put("location",    "fff");
 
 
-        db.insert( "Library", null, cv );
+      //  db.insert( "Library", null, cv );
 
 
 
