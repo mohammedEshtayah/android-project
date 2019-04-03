@@ -13,10 +13,10 @@ public class DB {
     public SQLiteDatabase db;
     private  File file;
   public  DB(){
-      //file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath(), "/project-android");
+      file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath(), "/android-project");
 
       if (!file.exists())  file.mkdir();
-      File myFile = new File(file.getAbsolutePath()+"/DB.db");
+      File myFile = new File(file.getAbsolutePath()+"/DBB.db");
 
       db= SQLiteDatabase .openOrCreateDatabase( myFile.getPath() ,null);
 
@@ -36,8 +36,8 @@ public class DB {
     db.execSQL("create table IF NOT EXISTS buy(user_name VARCHAR(30),name_book varchar(50) PRIMARY key,\n" +
               "  FOREIGN KEY (name_book) REFERENCES books ,\n" +
               "  FOREIGN KEY (user_name) REFERENCES users  );" );
-
- /*ContentValues cv = new  ContentValues();
+      try {
+ContentValues cv = new  ContentValues();
 
       cv.put("name_library", "Library Nablus");
       cv.put("password",   "111");
@@ -46,14 +46,15 @@ public class DB {
       cv.put("phone",    13);
       cv.put("location",    "fff");
 
-      db.insert( "Library", null, cv );
+
+        db.insert( "Library", null, cv );
 
 
 
 
       Cursor cursor = db.rawQuery("select * from Library",null);
       while (cursor.moveToNext())   Log.d("aaaaaaaaaaaaaaaaaaaaa",cursor.getString(cursor.getColumnIndex("name_library")));
-*/
+      }catch (Exception e){}
 
   }
 

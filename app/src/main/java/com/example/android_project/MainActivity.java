@@ -1,13 +1,18 @@
 package com.example.android_project;
 
+import android.Manifest;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +35,9 @@ private Button signUp,login;
     File file;
     private Spinner TypeBook;
     private DB database;
+    private final static int REQUEST_DB=10;
     private sharedPreference SP;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +46,12 @@ private Button signUp,login;
         password=(EditText)findViewById(R.id.password1);
         signUp = (Button) findViewById(R.id.signUp);
         login = (Button) findViewById(R.id.login);
-         database=new DB();
+        if(checkCallingOrSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_DB);
+        } else{
+            database=new DB();
+        }
+
          SP=new sharedPreference(this);
 
          if(SP.readLoginState()&& SP.readLoginType().equals("Library")){
@@ -106,6 +118,7 @@ if(  p ){
 }
 
 
+
                 }
 
 
@@ -118,8 +131,24 @@ if(  p ){
 
             }
         }       );
-    }
 
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (requestCode==REQUEST_DB)
+        {
+
+            for (int i =0 ; i < grantResults.length; i++)
+                if (grantResults[i]!= PackageManager.PERMISSION_GRANTED)
+                    return;
+            database=new DB();
+
+
+        }
+        super.onRequestPermissionsResult ( requestCode, permissions, grantResults );
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
