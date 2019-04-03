@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Add book" android:id="@+id/sADDBOOK"/>
+
+    <item android:title="Set location" android:id="@+id/setlocation"/>
+
+    <item android:title="Set about us" android:id="@+id/setaboutus"/>
+
+    <item android:title="Set phone" android:id="@+id/setphone"/>
+
+    <item android:title="View books" android:id="@+id/viewbooks"/>
+
+    <item android:title="log out" android:id="@+id/sLogout"/>
+</menu>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Sections" android:id="@+id/sections">
+        <menu>
+            <item android:title="Arabe" android:id="@+id/arabe"  android:orderInCategory="0"/>
+
+        </menu>
+    </item>
+
+
+
+
+    <item android:title="buy" android:id="@+id/buy"  android:orderInCategory="0" android:icon="@drawable/buy"/>
+
+
+    <item android:title="Queries" android:id="@+id/queries">
+        <menu>
+            <group android:id="@+id/text_color_group" android:checkableBehavior="single">
+                <item android:title="about us" android:id="@+id/about"  android:orderInCategory="0" android:icon="@drawable/info"/>
+                <item android:title="Call us" android:id="@+id/call"  android:orderInCategory="0" android:icon="@drawable/call"/>
+                <item android:title="Our Location" android:id="@+id/location"  android:orderInCategory="0" android:icon="@drawable/location"/>
+
+            </group>
+        </menu>
+    </item>
+
+
+    <group android:id="@+id/text_color" android:checkableBehavior="single">
+          <item android:title="log out" android:id="@+id/logout"  android:orderInCategory="1"  android:icon="@drawable/signout"/>
+     </group>
+
+
+</menu>

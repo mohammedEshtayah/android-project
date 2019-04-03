@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddBooks">
+
+    <EditText
+        android:id="@+id/NameBooks"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/inputmain"
+        android:ems="10"
+        android:hint="  Name Book"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/abstractss"
+        android:layout_width="273dp"
+        android:layout_height="216dp"
+        android:layout_below="@+id/TypeBooks"
+        android:layout_alignStart="@+id/NameBooks"
+        android:layout_alignEnd="@+id/GetImages"
+        android:layout_marginStart="-12dp"
+        android:layout_marginTop="25dp"
+        android:hint="                     abstracts"
+        android:layout_marginEnd="-12dp"
+        android:background="@drawable/inputmain"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/AddBooks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/abstractss"
+        android:layout_alignStart="@+id/abstractss"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/buttonmain"
+        android:text="Add Bbook" />
+
+
+    <Spinner
+        android:id="@+id/TypeBooks"
+        android:layout_width="208dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_alignStart="@+id/NameBooks"
+        android:layout_alignEnd="@+id/GetImages"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="42dp" />
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/NameBooks"
+
+        android:layout_alignStart="@+id/NameBooks"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inputmain"
+        android:ems="10"
+        android:hint="  price"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/GetImages"
+        android:layout_width="35dp"
+        android:layout_height="28dp"
+        android:layout_alignTop="@+id/NameBooks"
+        android:layout_alignBottom="@+id/NameBooks"
+
+        android:layout_toEndOf="@+id/NameBooks"
+        android:background="@drawable/selectimage"
+        android:text=" " />
+</RelativeLayout>
