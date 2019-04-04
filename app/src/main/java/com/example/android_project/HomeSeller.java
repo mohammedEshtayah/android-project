@@ -90,6 +90,7 @@ public class HomeSeller extends AppCompatActivity implements NavigationView.OnNa
         switch (menuItem.getItemId()){
             case R.id.sADDBOOK:
                 startActivity(new Intent(getApplicationContext(),AddBooks.class));
+                finish();
                 break;
 
                 case R.id.setaboutus:
@@ -144,7 +145,8 @@ public class HomeSeller extends AppCompatActivity implements NavigationView.OnNa
                 byteImage = stream.toByteArray();
                 ContentValues cv = new  ContentValues();
                 cv.put("image",  byteImage  );
-              //  database.db.update("users",cv,"user_name= '"+user_name +"',null);
+                database.db.execSQL("update Libara set image='"+byteImage+"' where user_name= '"+user_name +"'");
+                // database.db.update("users",cv,"user_name= '"+user_name +"',null);
 
                 imageView.setImageBitmap(BitmapFactory.decodeByteArray( byteImage,0,byteImage.length));
             } catch (IOException e) {

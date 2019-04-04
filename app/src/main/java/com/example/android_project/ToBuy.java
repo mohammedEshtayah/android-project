@@ -20,12 +20,12 @@ public class ToBuy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_buy);
         This=getIntent();
-        toBuy=(Button)findViewById(R.id.ToBuy);
+        toBuy=(Button)findViewById(R.id.toBuy);
         SP=new sharedPreference(this);
         database=new DB();
 
         Titel=(TextView)findViewById(R.id.titelBook2);
-        Abstract=(TextView)findViewById(R.id.abstractBook2);
+        Abstract=(TextView)findViewById(R.id.abstracts);
         noSales=(TextView)findViewById(R.id.noSales);
 
           Titel.setText(This.getStringExtra("Titel"));
@@ -46,5 +46,11 @@ public class ToBuy extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

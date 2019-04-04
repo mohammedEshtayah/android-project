@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Buy">
+    tools:context=".update_delete_books">
 
     <TextView
         android:id="@+id/titelBook2"
@@ -15,48 +15,61 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="104dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="106dp" />
+        android:layout_marginEnd="106dp"
+        android:text="TextView" />
 
-    <TextView
+    <EditText
         android:id="@+id/abstracts"
         android:layout_width="wrap_content"
         android:layout_height="340dp"
         android:layout_below="@+id/titelBook2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="29dp" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="15dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="41dp"
         android:layout_below="@+id/abstracts"
         android:layout_alignEnd="@+id/textView3"
         android:layout_alignParentStart="true"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="20dp"
         android:text="Sales number:   "
         tools:ignore="NotSibling" />
 
-    <TextView
+    <EditText
         android:id="@+id/noSales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+
         android:layout_toEndOf="@+id/textView3"
+        android:inputType="number"
         android:text="0" />
 
     <Button
-        android:id="@+id/toBuy"
-        android:layout_width="wrap_content"
+        android:id="@+id/update"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/buy"
-        android:text="To buy" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="74dp"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/update"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="64dp"
+        android:layout_toStartOf="@+id/update"
+        android:text="delete" />
 </RelativeLayout>

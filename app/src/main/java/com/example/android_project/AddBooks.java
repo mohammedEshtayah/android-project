@@ -107,4 +107,11 @@ private   byte[] byteImage;
 
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
