@@ -3,6 +3,11 @@
     <item android:title="Sections" android:id="@+id/sections">
         <menu>
             <item android:title="Arabe" android:id="@+id/arabe"  android:orderInCategory="0"/>
+            <item android:title="E" android:id="@+id/E"  android:orderInCategory="0"/>
+            <item android:title="aaa" android:id="@+id/aaa"  android:orderInCategory="0"/>
+            <item android:title="bbb" android:id="@+id/bbb"  android:orderInCategory="0"/>
+            <item android:title="vv" android:id="@+id/vvvv"  android:orderInCategory="0"/>
+
 
         </menu>
     </item>

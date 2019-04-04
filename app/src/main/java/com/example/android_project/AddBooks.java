@@ -44,7 +44,7 @@ private   byte[] byteImage;
         price=(EditText)findViewById(R.id.price);
           SP=new sharedPreference(this);
         name_Library=SP.SP.getString("user",null);
-        String[] typeBook = { "India", "USA", "China", "Japan", "Other"};
+        String[] typeBook = { "arabe", "USA", "China", "Japan", "Other"};
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,typeBook);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         TypeBook.setAdapter(aa);

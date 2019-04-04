@@ -38,7 +38,7 @@ public class HomeSeller extends AppCompatActivity implements NavigationView.OnNa
     private ViewBook viewBook;
     private CircleImageView imageView;
     private RecyclerView recyclerView;
-
+private  Cursor cursora, cursor;
     private Uri PathImage;
     private Bitmap bitmap;
     private  byte[] image;
@@ -108,14 +108,15 @@ public class HomeSeller extends AppCompatActivity implements NavigationView.OnNa
     }
 
     private void viewBook() {
-        Cursor cursora = database.db.rawQuery("select image from users where user_name ='"+user_name+"' ",null);
+          cursora = database.db.rawQuery("select image from Library where name_library ='"+user_name+"' ",null);
+
 
         while (  cursora.moveToNext()) {
-            image =cursora.getBlob(cursora.getColumnIndex("image"));
-            imageView.setImageBitmap(BitmapFactory.decodeByteArray( image,0,image.length));
+            image =cursora.getBlob(0);
+        if (image!=null)   imageView.setImageBitmap(BitmapFactory.decodeByteArray( image,0,image.length));
         }
 
-        Cursor cursor = database.db.rawQuery("select * from books",null);
+          cursor = database.db.rawQuery("select * from books",null);
         while (  cursor.moveToNext()) {
 
             Log.d("aaaa", String.valueOf(cursor.getColumnIndex("name_book")));
@@ -145,8 +146,8 @@ public class HomeSeller extends AppCompatActivity implements NavigationView.OnNa
                 byteImage = stream.toByteArray();
                 ContentValues cv = new  ContentValues();
                 cv.put("image",  byteImage  );
-                database.db.execSQL("update Libara set image='"+byteImage+"' where user_name= '"+user_name +"'");
-                // database.db.update("users",cv,"user_name= '"+user_name +"',null);
+                database.db.execSQL("update Library set image='"+byteImage+"' where name_library= '"+user_name +"'");
+
 
                 imageView.setImageBitmap(BitmapFactory.decodeByteArray( byteImage,0,byteImage.length));
             } catch (IOException e) {

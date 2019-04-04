@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".update_delete_books"></activity>
+        <activity android:name=".searchType"></activity>
+        <activity android:name=".update_delete_books" />
 
         <service
             android:name=".MyService"

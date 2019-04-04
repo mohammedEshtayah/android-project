@@ -52,6 +52,7 @@ private NavigationView navigationView;
   private ViewBook viewBook;
   private CircleImageView imageView;
   private DB database;
+  private   Cursor cursora;
     private Uri PathImage;
     private Bitmap bitmap;
     private  byte[] image;
@@ -82,6 +83,11 @@ private NavigationView navigationView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         database=new DB();
 
+          cursora = database.db.rawQuery("select image from users where user_name ='"+user_name+"' ",null);
+        cursora.moveToFirst();
+        if(image!=null) imageView.setImageBitmap(BitmapFactory.decodeByteArray( cursora.getBlob(0)
+                ,0,cursora.getBlob(0).length));
+
        viewBook();
         selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,12 +102,7 @@ private NavigationView navigationView;
     }
 
     private void viewBook() {
-        Cursor cursora = database.db.rawQuery("select image from users where user_name ='"+user_name+"' ",null);
 
-        while (  cursora.moveToNext()) {
-            image =cursora.getBlob(cursora.getColumnIndex("image"));
-            imageView.setImageBitmap(BitmapFactory.decodeByteArray( image,0,image.length));
-        }
 
         Cursor cursor = database.db.rawQuery("select * from books",null);
         while (  cursor.moveToNext()) {
@@ -126,23 +127,13 @@ private NavigationView navigationView;
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         switch (menuItem.getItemId()){
+            case R.id.arabe:
+                startActivity(new Intent(getApplicationContext(),searchType.class).putExtra("type","arabe"));
+                break;
             case R.id.buy:
                 startActivity(new Intent(getApplicationContext(),Buy.class));
                 break;
             case R.id.about:
-
-
-                ContentValues cv = new  ContentValues();
-                cv.put("id_user",  95  );
-                cv.put("user_name",  "mohammed");
-                cv.put("password",   "dfdf");
-                cv.put("image",   byteImage);
-                cv.put("address",    "sss");
-                cv.put("phone",    13);
-                cv.put("email",   "ss");
-
-
-                database .db.insert( "users", null, cv );
 
 
                 break;
@@ -208,7 +199,7 @@ private NavigationView navigationView;
             byteImage = stream.toByteArray();
                 ContentValues cv = new  ContentValues();
                 cv.put("image",  byteImage  );
-            database.db.update("users",cv,"id_user= "+ 0 ,null);
+          database.db.execSQL("update users set image='"+byteImage+"' where user_name='"+user_name+"'");
 
                 imageView.setImageBitmap(BitmapFactory.decodeByteArray( byteImage,0,byteImage.length));
         } catch (IOException e) {
@@ -240,7 +231,7 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
         while (  cursora.moveToNext()) {
             image =cursora.getBlob(cursora.getColumnIndex("image"));
-            imageView.setImageBitmap(BitmapFactory.decodeByteArray( image,0,image.length));
+if(image!=null)   imageView.setImageBitmap(BitmapFactory.decodeByteArray( image,0,image.length));
         }
 
         Cursor cursor = database.db.rawQuery("select * from books where name_book='"+newText+"'",null);
