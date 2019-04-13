@@ -157,6 +157,7 @@ if(  p ){
         super.onBackPressed();
     finish();
     }
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -175,5 +176,5 @@ if(  p ){
 
 
     }
-
+*/
 }

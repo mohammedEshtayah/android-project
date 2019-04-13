@@ -141,11 +141,19 @@ private NavigationView navigationView;
               call();
 
                     break;
+            case R.id.Repassword:
+
+                Intent intent= new Intent(getApplicationContext(),RePassword.class);
+                intent.putExtra("name",user_name);
+                startActivity(intent);
+                finish();
+                break;
             case R.id.location:
                 startActivity ( new Intent ( Intent.ACTION_VIEW, Uri.parse ( "geo:0,0?q=Nablus,خان التجار" )) );
                 break;
             case R.id.logout:
                 SP.writeLoginState(null,"Users",false);
+                startActivity(new Intent(this,MainActivity.class));
                 finish();
                 break;
         }

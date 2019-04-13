@@ -46,13 +46,13 @@ ContentValues cv = new  ContentValues();
       cv.put("location",    "fff");
 
 
-      //  db.insert( "Library", null, cv );
+        db.insert( "Library", null, cv );
 
 
 
 
-      Cursor cursor = db.rawQuery("select * from Library",null);
-      while (cursor.moveToNext())   Log.d("aaaaaaaaaaaaaaaaaaaaa",cursor.getString(cursor.getColumnIndex("name_library")));
+      Cursor cursor = db.rawQuery("select * from users",null);
+      while (cursor.moveToNext())   Log.d("aaaaaaaaaaaaaaaaaaaaa",cursor.getString(cursor.getColumnIndex("password")));
       }catch (Exception e){}
 
   }

@@ -31,6 +31,8 @@
 
 
     <group android:id="@+id/text_color" android:checkableBehavior="single">
+
+        <item android:title="Repassword" android:id="@+id/Repassword"/>
           <item android:title="log out" android:id="@+id/logout"  android:orderInCategory="1"  android:icon="@drawable/signout"/>
      </group>
 

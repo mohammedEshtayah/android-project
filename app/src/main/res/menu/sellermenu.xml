@@ -10,6 +10,8 @@
 
     <item android:title="View books" android:id="@+id/viewbooks"/>
 
+    <item android:title="Repassword" android:id="@+id/Repassword"/>
+
     <item android:title="log out" android:id="@+id/sLogout"/>
 </menu>
 

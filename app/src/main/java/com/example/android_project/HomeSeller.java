@@ -90,19 +90,28 @@ private  Cursor cursora, cursor;
         switch (menuItem.getItemId()){
             case R.id.sADDBOOK:
                 startActivity(new Intent(getApplicationContext(),AddBooks.class));
-                finish();
+
                 break;
 
                 case R.id.setaboutus:
-                    SP.writeLoginState(null,"Libaray",false);
+
                     finish();
+                break;
+
+            case R.id.Repassword:
+
+               Intent intent= new Intent(getApplicationContext(),RePassword.class);
+               intent.putExtra("name",user_name);
+                startActivity(intent);
+                finish();
                 break;
 
 
                 case  R.id.sLogout:
                 SP.writeLoginState(null,"Libaray",false);
-              this.finish();
-                break;
+                    startActivity(new Intent(this,MainActivity.class));
+                    finish();
+                    break;
         }
         return false;
     }
